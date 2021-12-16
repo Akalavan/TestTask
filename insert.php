@@ -32,8 +32,7 @@
         $stmt -> execute($params);
         return $stmt;
     }
-
-    $array = "S1QWERT5TYS1QWERT7TYS1QWERT9TYS1QWERT2TY5SNRT5-2qw5SNRT5-4qwS1QCRRT5TY5SNRT5-2ER5SNRT5-5ER5SNRS5-2ER5SNAT5-2ER";
+    
     if (count($_POST) == 0) {
         flash_session_set('message','Поля не заполнены');
     } else if ($_POST['SN'] == '') {

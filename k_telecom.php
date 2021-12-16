@@ -1,24 +1,11 @@
 <?php
-    include "include/db.php";
-    if (session_status() == PHP_SESSION_NONE) session_start();
+    require_once('include/db.php');
+    require_once('flashMessage.php');
 
 	$stmt = $db -> query('SELECT * FROM type_equipment');
-
     # Устанавливаем режим выборки. Возвращает массив с названиями столбцов в виде ключей
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
-
     $equipment = $stmt -> fetchAll();
-
-	function flash_session_get($key) {
-	    if (isset($_SESSION['flash'][$key])) {
-	        $data = $_SESSION['flash'][$key];
-	        unset($_SESSION['flash'][$key]);
-	        return $data;
-        } else {
-	        return '';
-        }
-    }
-
 ?>
 
 <!DOCTYPE html>
